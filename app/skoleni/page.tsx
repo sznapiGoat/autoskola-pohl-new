@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function SkoleniPage() {
   return (
-    <div className="max-w-[1400px] mx-auto px-6 py-16">
+    <div className="max-w-[1400px] mx-auto px-6 py-24">
       <Breadcrumb crumbs={[{ label: "Domů", href: "/" }, { label: "Profesní školení CPC" }]} />
 
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
@@ -22,7 +22,7 @@ export default function SkoleniPage() {
           <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-accent mb-3">
             Profesní školení CPC
           </p>
-          <h1 className="text-[clamp(2rem,4vw,3rem)] font-bold text-ink mb-6 tracking-tight">
+          <h1 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-ink mb-6 tracking-tight leading-[1.1]">
             Termíny 2026
           </h1>
           <p className="text-[1rem] leading-[1.65] text-ink-2 mb-5">
@@ -78,7 +78,7 @@ export default function SkoleniPage() {
 
           <a
             href={CONTACT.emailSubjectTraining}
-            className="mt-4 flex items-center justify-center gap-2 bg-accent text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-accent-deep transition-colors duration-200"
+            className="mt-4 flex items-center justify-center gap-2 bg-accent text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-accent-deep hover:-translate-y-0.5 hover:shadow-[var(--shadow-cobalt)] transition-all duration-200"
           >
             <Mail size={14} strokeWidth={2.5} />
             Přihlásit se na školení

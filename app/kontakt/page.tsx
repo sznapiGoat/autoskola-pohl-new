@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <div className="max-w-[1400px] mx-auto px-6 py-16">
+    <div className="max-w-[1400px] mx-auto px-6 py-24">
       <Breadcrumb crumbs={[{ label: "Domů", href: "/" }, { label: "Kontakt" }]} />
 
-      <div className="mt-10 mb-12">
+      <div className="mt-10 mb-14">
         <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
           Kontakt
         </p>
-        <h1 className="text-[clamp(2rem,4vw,3rem)] font-bold text-ink mb-4 tracking-tight">
+        <h1 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-ink mb-5 tracking-tight leading-[1.1]">
           Napište nebo zavolejte
         </h1>
         <p className="text-[0.9375rem] text-ink-2 leading-[1.65] max-w-[480px]">

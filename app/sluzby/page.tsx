@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function SluzbyPage() {
   return (
-    <div className="max-w-[1400px] mx-auto px-6 py-16">
+    <div className="max-w-[1400px] mx-auto px-6 py-24">
       <Breadcrumb crumbs={[{ label: "Domů", href: "/" }, { label: "Služby" }]} />
 
-      <div className="mt-10 mb-12">
+      <div className="mt-10 mb-14">
         <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
           Naše služby
         </p>
-        <h1 className="text-[clamp(2rem,4vw,3rem)] font-bold text-ink mb-4 tracking-tight">
+        <h1 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-ink mb-5 tracking-tight leading-[1.1]">
           Co nabízíme
         </h1>
       </div>
@@ -44,13 +44,13 @@ export default function SluzbyPage() {
       </div>
 
       {/* License return deep-dive */}
-      <section className="border-t border-border pt-16">
+      <section className="border-t border-border pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
           <div>
             <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
               Specializovaná služba
             </p>
-            <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-semibold text-ink mb-6">
+            <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.2] tracking-tight text-ink mb-8">
               Přišli jste o řidičský průkaz?
             </h2>
             <p className="text-[1.0625rem] leading-[1.65] text-ink-2 mb-5">
@@ -108,7 +108,7 @@ export default function SluzbyPage() {
           </div>
           <a
             href={CONTACT.phone1Href}
-            className="shrink-0 bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent transition-colors duration-200"
+            className="shrink-0 bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
           >
             {CONTACT.phone1}
           </a>

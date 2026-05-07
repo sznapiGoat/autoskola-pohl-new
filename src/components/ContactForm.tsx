@@ -162,7 +162,7 @@ export default function ContactForm() {
         className={cn(
           "inline-flex items-center justify-center gap-2 self-start",
           "bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em]",
-          "px-10 py-4 hover:bg-accent transition-colors duration-200",
+          "px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200",
           "disabled:opacity-60 disabled:cursor-not-allowed"
         )}
       >

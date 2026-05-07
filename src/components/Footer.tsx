@@ -11,7 +11,7 @@ const NAV_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-ink text-surface">
-      <div className="max-w-[1400px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-start">
+      <div className="max-w-[1400px] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-start">
         {/* Brand + contact */}
         <div>
           <Link href="/">

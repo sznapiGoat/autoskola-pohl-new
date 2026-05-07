@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       {/* ─── Hero ────────────────────────────────────────────────────────────── */}
       <section className="min-h-[calc(100svh-62px)] flex items-center bg-gradient-to-br from-bg via-bg to-[oklch(95%_0.008_252)]">
-        <div className="max-w-[1400px] mx-auto px-6 py-20 w-full">
+        <div className="max-w-[1400px] mx-auto px-6 py-28 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 items-center">
 
             {/* Left: copy */}
@@ -34,7 +34,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-6">
                 <Link
                   href="/cenik"
-                  className="bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-12 py-4 hover:bg-accent transition-colors duration-200"
+                  className="bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-12 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
                 >
                   Zobrazit ceník
                 </Link>
@@ -54,7 +54,7 @@ export default function HomePage() {
                 <Link
                   key={item.label}
                   href="/cenik"
-                  className="border border-border bg-surface px-5 py-4 flex items-center justify-between gap-4 hover:border-accent/40 hover:shadow-sm transition-all duration-200"
+                  className="border border-border bg-surface px-5 py-4 flex items-center justify-between gap-4 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift-sm)] transition-all duration-200"
                 >
                   <div>
                     <div className="text-[0.875rem] font-semibold text-ink">{item.label}</div>
@@ -77,13 +77,13 @@ export default function HomePage() {
       </section>
 
       {/* ─── Services teaser ─────────────────────────────────────────────────── */}
-      <section className="py-20 border-t border-border bg-surface">
+      <section className="py-28 border-t border-border bg-surface">
         <div className="max-w-[1400px] mx-auto px-6">
           <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
             Co nabízíme
           </p>
-          <div className="flex items-end justify-between gap-6 mb-12">
-            <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold text-ink">
+          <div className="flex items-end justify-between gap-6 mb-14">
+            <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.2] tracking-tight text-ink">
               Čtyři způsoby, jak vám pomůžeme
             </h2>
             <Link
@@ -125,7 +125,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA strip ───────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-accent">
+      <section className="py-20 bg-accent">
         <div className="max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-[1.5rem] font-bold text-surface mb-1">
@@ -138,14 +138,14 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-3 shrink-0">
             <a
               href={CONTACT.phone1Href}
-              className="flex items-center gap-2 bg-surface text-ink text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-bg transition-colors duration-200"
+              className="flex items-center gap-2 bg-surface text-ink text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-bg hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
             >
               <Phone size={13} strokeWidth={2.5} />
               {CONTACT.phone1}
             </a>
             <Link
               href="/kontakt#form"
-              className="flex items-center gap-2 border border-surface/30 text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-surface/10 transition-colors duration-200"
+              className="flex items-center gap-2 border border-surface/40 text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-surface/15 hover:-translate-y-0.5 transition-all duration-200"
             >
               Přihlásit se
             </Link>

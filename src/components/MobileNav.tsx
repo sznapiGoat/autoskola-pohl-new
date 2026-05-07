@@ -58,6 +58,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
           {/* Drawer */}
           <motion.div
             key="drawer"
+            id="mobile-nav"
             role="dialog"
             aria-modal="true"
             aria-label="Navigační menu"

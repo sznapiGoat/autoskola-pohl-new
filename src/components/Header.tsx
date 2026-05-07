@@ -58,7 +58,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={CONTACT.phone1Href}
-              className="hidden sm:flex items-center gap-2 bg-ink text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent transition-colors duration-200"
+              className="hidden sm:flex items-center gap-2 bg-ink text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
             >
               <Phone size={13} strokeWidth={2.5} />
               {CONTACT.phone1}
@@ -66,16 +66,17 @@ export default function Header() {
 
             <Link
               href="/kontakt#form"
-              className="hidden sm:flex items-center bg-accent text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent-deep transition-colors duration-200"
+              className="hidden sm:flex items-center bg-accent text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent-deep hover:-translate-y-0.5 hover:shadow-[var(--shadow-cobalt)] transition-all duration-200"
             >
               Přihlásit se
             </Link>
 
             <button
+              type="button"
               className="md:hidden text-ink-2 hover:text-ink transition-colors duration-200 p-1"
               onClick={() => setMobileOpen(true)}
               aria-label="Otevřít menu"
-              aria-expanded={mobileOpen}
+              aria-expanded={mobileOpen ? "true" : "false"}
               aria-controls="mobile-nav"
             >
               <Menu size={22} />
