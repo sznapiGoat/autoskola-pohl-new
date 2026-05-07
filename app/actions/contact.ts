@@ -50,7 +50,7 @@ export async function submitContact(
 
   try {
     const { error } = await resend.emails.send({
-      from: "Autoškola POHL <web@autoskola-pohl.cz>",
+      from: "Autoškola POHL <onboarding@resend.dev>",
       to: "autoskola.pohl@seznam.cz",
       subject: `Nová poptávka — ${jmeno}`,
       text: body,

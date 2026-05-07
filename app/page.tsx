@@ -144,10 +144,10 @@ export default function HomePage() {
               {CONTACT.phone1}
             </a>
             <Link
-              href="/kontakt"
+              href="/kontakt#form"
               className="flex items-center gap-2 border border-surface/30 text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-surface/10 transition-colors duration-200"
             >
-              Napsat zprávu
+              Přihlásit se
             </Link>
           </div>
         </div>

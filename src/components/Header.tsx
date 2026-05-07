@@ -55,7 +55,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a
               href={CONTACT.phone1Href}
               className="hidden sm:flex items-center gap-2 bg-ink text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent transition-colors duration-200"
@@ -63,6 +63,13 @@ export default function Header() {
               <Phone size={13} strokeWidth={2.5} />
               {CONTACT.phone1}
             </a>
+
+            <Link
+              href="/kontakt#form"
+              className="hidden sm:flex items-center bg-accent text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent-deep transition-colors duration-200"
+            >
+              Přihlásit se
+            </Link>
 
             <button
               className="md:hidden text-ink-2 hover:text-ink transition-colors duration-200 p-1"

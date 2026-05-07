@@ -94,7 +94,7 @@ export default function KontaktPage() {
         </div>
 
         {/* Right: contact form */}
-        <div>
+        <div id="form">
           <h2 className="text-[1.125rem] font-semibold text-ink mb-6">
             Napište nám
           </h2>
