@@ -1,24 +1,50 @@
 "use client";
 
 import { useActionState } from "react";
-import { submitContact } from "@/app/actions/contact";
+import { submitContact, type ContactState } from "@/app/actions/contact";
 import { cn } from "@/src/lib/cn";
 
-const GROUP_OPTIONS = [
-  "Skupina B (osobní automobil)",
-  "Skupiny A (motocykl)",
-  "Skupiny BE / B96 (auto + přívěs)",
-  "Skupiny C / CE (nákladní auto)",
-  "Profesní školení CPC",
-  "Vrácení řidičského průkazu",
-  "Referentské školení",
-  "Jiné",
-] as const;
+const SKUPINA_OPTIONS = ["AM", "A", "B", "C", "E", "Kondiční jízda"] as const;
 
-const initialState = { success: false, error: "" };
+const initialState: ContactState = { success: false, errors: {} };
+
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return (
+    <span role="alert" className="text-[0.75rem] text-red-600 mt-1">
+      {message}
+    </span>
+  );
+}
+
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin h-4 w-4 shrink-0"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962
+           7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      />
+    </svg>
+  );
+}
 
 export default function ContactForm() {
-  const [state, action, pending] = useActionState(submitContact, initialState);
+  const [state, formAction, pending] = useActionState(submitContact, initialState);
 
   if (state.success) {
     return (
@@ -26,110 +52,121 @@ export default function ContactForm() {
         <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-accent mb-3">
           Odesláno
         </p>
-        <h3 className="text-[1.25rem] font-semibold text-ink mb-2">
-          Zpráva odeslána
-        </h3>
+        <p className="text-[1.125rem] font-semibold text-ink mb-2">
+          ✓ Děkujeme! Ozveme se co nejdříve.
+        </p>
         <p className="text-[0.9375rem] text-ink-2 leading-[1.65]">
-          Ozveme se vám do 24 hodin. Mezitím nás můžete kontaktovat telefonicky.
+          Mezitím nás můžete kontaktovat telefonicky.
         </p>
       </div>
     );
   }
 
+  const inputClass = cn(
+    "border border-border bg-bg px-4 py-3 text-[0.9375rem] text-ink w-full",
+    "placeholder:text-ink-3/60 focus:outline-none focus:border-accent",
+    "transition-colors duration-200"
+  );
+
   return (
-    <form action={action} className="border border-border bg-surface p-8 md:p-10 flex flex-col gap-5">
+    <form action={formAction} noValidate className="border border-border bg-surface p-8 md:p-10 flex flex-col gap-5">
+      {/* Jméno + Telefon row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="name" className="text-[0.8125rem] font-medium text-ink-2">
+        <div className="flex flex-col gap-1">
+          <label htmlFor="jmeno" className="text-[0.8125rem] font-medium text-ink-2">
             Jméno a příjmení
           </label>
           <input
-            id="name"
-            name="name"
+            id="jmeno"
+            name="jmeno"
             type="text"
             required
             autoComplete="name"
             placeholder="Jan Novák"
-            className={cn(
-              "border border-border bg-bg px-4 py-3 text-[0.9375rem] text-ink",
-              "placeholder:text-ink-3/60 focus:outline-none focus:border-accent",
-              "transition-colors duration-200"
-            )}
+            aria-describedby={state.errors.jmeno ? "err-jmeno" : undefined}
+            className={inputClass}
           />
+          <FieldError message={state.errors.jmeno} />
         </div>
 
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="phone" className="text-[0.8125rem] font-medium text-ink-2">
+        <div className="flex flex-col gap-1">
+          <label htmlFor="telefon" className="text-[0.8125rem] font-medium text-ink-2">
             Telefon
           </label>
           <input
-            id="phone"
-            name="phone"
+            id="telefon"
+            name="telefon"
             type="tel"
             required
             autoComplete="tel"
-            placeholder="+420 600 000 000"
-            className={cn(
-              "border border-border bg-bg px-4 py-3 text-[0.9375rem] text-ink",
-              "placeholder:text-ink-3/60 focus:outline-none focus:border-accent",
-              "transition-colors duration-200"
-            )}
+            placeholder="602 441 636"
+            aria-describedby={state.errors.telefon ? "err-telefon" : undefined}
+            className={inputClass}
           />
+          <FieldError message={state.errors.telefon} />
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="group" className="text-[0.8125rem] font-medium text-ink-2">
-          Zájem o
+      {/* Skupina */}
+      <div className="flex flex-col gap-1">
+        <label htmlFor="skupina" className="text-[0.8125rem] font-medium text-ink-2">
+          Zájem o skupinu
         </label>
         <select
-          id="group"
-          name="group"
+          id="skupina"
+          name="skupina"
           required
           defaultValue=""
-          className={cn(
-            "border border-border bg-bg px-4 py-3 text-[0.9375rem] text-ink",
-            "focus:outline-none focus:border-accent transition-colors duration-200",
-            "appearance-none"
-          )}
+          aria-describedby={state.errors.skupina ? "err-skupina" : undefined}
+          className={cn(inputClass, "appearance-none")}
         >
-          <option value="" disabled>Vyberte skupinu nebo službu…</option>
-          {GROUP_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>{opt}</option>
+          <option value="" disabled>
+            Vyberte skupinu…
+          </option>
+          {SKUPINA_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
           ))}
         </select>
+        <FieldError message={state.errors.skupina} />
       </div>
 
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="message" className="text-[0.8125rem] font-medium text-ink-2">
-          Zpráva <span className="text-ink-3 font-normal">(volitelné)</span>
+      {/* Zpráva */}
+      <div className="flex flex-col gap-1">
+        <label htmlFor="zprava" className="text-[0.8125rem] font-medium text-ink-2">
+          Zpráva{" "}
+          <span className="text-ink-3 font-normal">(volitelné)</span>
         </label>
         <textarea
-          id="message"
-          name="message"
+          id="zprava"
+          name="zprava"
           rows={4}
           placeholder="Dotaz, termín, specifické požadavky…"
-          className={cn(
-            "border border-border bg-bg px-4 py-3 text-[0.9375rem] text-ink resize-none",
-            "placeholder:text-ink-3/60 focus:outline-none focus:border-accent",
-            "transition-colors duration-200"
-          )}
+          aria-describedby={state.errors.zprava ? "err-zprava" : undefined}
+          className={cn(inputClass, "resize-none")}
         />
+        <FieldError message={state.errors.zprava} />
       </div>
 
-      {state.error && (
-        <p className="text-[0.8125rem] text-red-600">{state.error}</p>
+      {/* Root error */}
+      {state.errors.root && (
+        <p role="alert" className="text-[0.875rem] text-red-600">
+          {state.errors.root}
+        </p>
       )}
 
       <button
         type="submit"
         disabled={pending}
         className={cn(
+          "inline-flex items-center justify-center gap-2 self-start",
           "bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em]",
           "px-10 py-4 hover:bg-accent transition-colors duration-200",
-          "disabled:opacity-50 disabled:cursor-not-allowed self-start"
+          "disabled:opacity-60 disabled:cursor-not-allowed"
         )}
       >
+        {pending && <Spinner />}
         {pending ? "Odesílám…" : "Odeslat zprávu"}
       </button>
     </form>
