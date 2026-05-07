@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, ChevronRight } from "lucide-react";
 import { SERVICES } from "@/src/data/services";
+import { TESTIMONIALS } from "@/src/data/testimonials";
 import { CONTACT } from "@/src/data/contact";
 
 export default function HomePage() {
@@ -107,6 +108,39 @@ export default function HomePage() {
             >
               Více o službách <ChevronRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Testimonials ────────────────────────────────────────────────────── */}
+      <section className="py-28 border-t border-border bg-surface">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
+            Reference
+          </p>
+          <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.2] tracking-tight text-ink mb-14">
+            Co říkají absolventi
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t, i) => (
+              <div
+                key={i}
+                className="border border-border bg-bg p-8 flex flex-col gap-6 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift-sm)] transition-all duration-200"
+              >
+                <span className="text-[2rem] leading-none text-accent/30 font-serif select-none">
+                  &ldquo;
+                </span>
+                <p className="text-[0.9375rem] leading-[1.7] text-ink-2 -mt-4 flex-1">
+                  {t.quote}
+                </p>
+                <div className="border-t border-border pt-5">
+                  <div className="text-[0.875rem] font-semibold text-ink">{t.name}</div>
+                  <div className="text-[0.75rem] text-ink-3 mt-0.5 uppercase tracking-[0.08em]">
+                    {t.detail}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -32,6 +32,25 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Autoškola Pohl s.r.o.",
+  description:
+    "Akreditované školící středisko řidičů PZ v Dobrušce. Výcvik skupin AM–CE, profesní školení CPC, vrácení řidičského průkazu.",
+  url: "https://www.autoskola-pohl.cz",
+  telephone: ["+420602441636", "+420607656937"],
+  email: "autoskola.pohl@seznam.cz",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Komenského 687",
+    postalCode: "518 01",
+    addressLocality: "Dobruška",
+    addressCountry: "CZ",
+  },
+  priceRange: "Kč",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,6 +62,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-svh bg-bg text-ink font-sans flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Header />
         <main className="flex-1 pt-[62px]">{children}</main>
         <Footer />
