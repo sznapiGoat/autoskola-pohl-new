@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/src/components/Breadcrumb";
 import { SERVICES, RETURN_SCENARIOS } from "@/src/data/services";
 import { CONTACT } from "@/src/data/contact";
@@ -106,12 +107,20 @@ export default function SluzbyPage() {
               Kontaktujte nás a domluvíme termín.
             </p>
           </div>
-          <a
-            href={CONTACT.phone1Href}
-            className="shrink-0 bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
-          >
-            {CONTACT.phone1}
-          </a>
+          <div className="flex flex-wrap items-center gap-4 shrink-0">
+            <Link
+              href="/kontakt#form"
+              className="bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
+            >
+              Přihlásit se
+            </Link>
+            <a
+              href={CONTACT.phone1Href}
+              className="text-[0.875rem] font-medium text-ink-2 hover:text-accent transition-colors duration-200"
+            >
+              {CONTACT.phone1}
+            </a>
+          </div>
         </div>
       </section>
     </div>

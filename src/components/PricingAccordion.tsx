@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import Link from "next/link";
 import { GROUPS, type GroupId } from "@/src/data/pricing";
 import { CONTACT } from "@/src/data/contact";
 import { cn } from "@/src/lib/cn";
@@ -104,13 +104,12 @@ export default function PricingAccordion() {
 
             {/* CTA */}
             <div className="mt-8 flex flex-wrap gap-4 items-center">
-              <a
-                href={CONTACT.emailHref}
-                className="inline-flex items-center gap-2 bg-ink text-surface text-sm font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
+              <Link
+                href="/kontakt#form"
+                className="inline-flex items-center bg-ink text-surface text-sm font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
               >
-                <Mail size={14} strokeWidth={2.5} />
-                Přihlásit se e-mailem
-              </a>
+                Přihlásit se
+              </Link>
               <a
                 href={CONTACT.phone1Href}
                 className="text-sm font-medium text-ink-2 hover:text-accent transition-colors duration-200"

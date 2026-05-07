@@ -33,18 +33,18 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap items-center gap-6">
                 <Link
-                  href="/cenik"
+                  href="/kontakt#form"
                   className="bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-12 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
                 >
-                  Zobrazit ceník
+                  Přihlásit se
                 </Link>
-                <a
-                  href={CONTACT.phone1Href}
+                <Link
+                  href="/cenik"
                   className="text-[0.875rem] font-medium text-ink hover:text-accent transition-colors duration-200 flex items-center gap-1.5"
                 >
-                  Zavolat: {CONTACT.phone1}
+                  Zobrazit ceník
                   <ChevronRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/src/components/Breadcrumb";
 import PricingAccordion from "@/src/components/PricingAccordion";
 
@@ -50,6 +51,23 @@ export default function CenikPage() {
             <li>Fotografii pro vydání průkazu</li>
           </ul>
         </div>
+      </div>
+
+      <div className="mt-14 border-t border-border pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <h2 className="text-[1.25rem] font-semibold text-ink mb-1">
+            Připraveni se přihlásit?
+          </h2>
+          <p className="text-[0.9375rem] text-ink-2">
+            Vyplňte přihlášku a ozveme se do 24 hodin.
+          </p>
+        </div>
+        <Link
+          href="/kontakt#form"
+          className="shrink-0 bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
+        >
+          Přihlásit se
+        </Link>
       </div>
     </div>
   );
