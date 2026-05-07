@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, ChevronRight } from "lucide-react";
-import { PRICE_PREVIEW } from "@/src/data/pricing";
 import { SERVICES } from "@/src/data/services";
 import { CONTACT } from "@/src/data/contact";
 
@@ -10,7 +10,7 @@ export default function HomePage() {
       {/* ─── Hero ────────────────────────────────────────────────────────────── */}
       <section className="min-h-[calc(100svh-62px)] flex items-center bg-gradient-to-br from-bg via-bg to-[oklch(95%_0.008_252)]">
         <div className="max-w-[1400px] mx-auto px-6 py-28 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: copy */}
             <div className="max-w-[680px]">
@@ -48,29 +48,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: price preview cards */}
-            <div className="hidden lg:flex flex-col gap-2.5">
-              {PRICE_PREVIEW.map((item) => (
-                <Link
-                  key={item.label}
-                  href="/cenik"
-                  className="border border-border bg-surface px-5 py-4 flex items-center justify-between gap-4 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift-sm)] transition-all duration-200"
-                >
-                  <div>
-                    <div className="text-[0.875rem] font-semibold text-ink">{item.label}</div>
-                    <div className="text-[0.75rem] text-ink-3 mt-0.5">{item.sub}</div>
-                  </div>
-                  <div className="text-[1.25rem] font-bold text-ink tabular-nums shrink-0">
-                    {item.price}
-                  </div>
-                </Link>
-              ))}
-              <Link
-                href="/cenik"
-                className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-ink-3 hover:text-accent transition-colors duration-200 text-right pr-1 mt-1"
-              >
-                Všechny skupiny →
-              </Link>
+            {/* Right: photo */}
+            <div className="hidden lg:block overflow-hidden">
+              <Image
+                src="/images/orkun-azap-_c7haaSAcIg-unsplash.jpg"
+                alt="Výuka jízdy s instruktorem"
+                width={660}
+                height={440}
+                priority
+                className="object-cover w-full aspect-[3/2]"
+              />
             </div>
           </div>
         </div>
@@ -120,6 +107,39 @@ export default function HomePage() {
             >
               Více o službách <ChevronRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── About / instruktor strip ────────────────────────────────────────── */}
+      <section className="py-28 border-t border-border bg-bg">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div className="overflow-hidden">
+              <Image
+                src="/images/bas-peperzak-tyhpK_QelPo-unsplash.jpg"
+                alt="Instruktor s žákem na cvičišti"
+                width={660}
+                height={440}
+                className="object-cover w-full aspect-[3/2]"
+              />
+            </div>
+            <div>
+              <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
+                Proč s námi
+              </p>
+              <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.2] tracking-tight text-ink mb-6">
+                Zkušení instruktoři,<br />individuální přístup
+              </h2>
+              <p className="text-[1rem] leading-[1.65] text-ink-2 mb-4">
+                V Dobrušce vyučujeme řidiče od roku 1990. Každý kurz
+                přizpůsobíme vašemu tempu — žádný spěch, žádný nátlak.
+                Jízdy domlouváme individuálně dle termínu.
+              </p>
+              <p className="text-[0.875rem] text-ink-3">
+                Přihlaste se e-mailem nebo telefonicky. Zahájení kdykoli.
+              </p>
+            </div>
           </div>
         </div>
       </section>

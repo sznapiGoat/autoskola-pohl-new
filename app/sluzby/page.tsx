@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/src/components/Breadcrumb";
 import { SERVICES, RETURN_SCENARIOS } from "@/src/data/services";
@@ -8,6 +9,17 @@ export const metadata: Metadata = {
   title: "Služby",
   description:
     "Výcvik všech skupin řidičského oprávnění, vrácení řidičského průkazu, profesní školení CPC a referentské školení v Dobrušce.",
+};
+
+const CARD_IMAGES: Record<number, { src: string; alt: string }> = {
+  0: {
+    src: "/images/the-ride-academy-bejtrIu6kgM-unsplash.jpg",
+    alt: "Motocykly s L tabulkami na cvičišti",
+  },
+  2: {
+    src: "/images/ucebna.jpg",
+    alt: "Učebna pro profesní školení CPC",
+  },
 };
 
 export default function SluzbyPage() {
@@ -26,22 +38,38 @@ export default function SluzbyPage() {
 
       {/* Services grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 border border-border mb-20">
-        {SERVICES.map((s, i) => (
-          <div
-            key={i}
-            className={[
-              "bg-surface p-8 md:p-10 hover:bg-bg transition-colors duration-200",
-              i % 2 === 0 ? "md:border-r border-border" : "",
-              i < 2 ? "border-b border-border" : "",
-            ].join(" ")}
-          >
-            <h2 className="text-[1.0625rem] font-semibold text-ink mb-3">{s.title}</h2>
-            <p className="text-[0.9375rem] leading-[1.65] text-ink-2 mb-5">{s.desc}</p>
-            <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">
-              {s.detail}
-            </p>
-          </div>
-        ))}
+        {SERVICES.map((s, i) => {
+          const img = CARD_IMAGES[i];
+          return (
+            <div
+              key={i}
+              className={[
+                "bg-surface hover:bg-bg transition-colors duration-200",
+                i % 2 === 0 ? "md:border-r border-border" : "",
+                i < 2 ? "border-b border-border" : "",
+              ].join(" ")}
+            >
+              {img && (
+                <div className="overflow-hidden">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={600}
+                    height={300}
+                    className="object-cover w-full aspect-[2/1]"
+                  />
+                </div>
+              )}
+              <div className="p-8 md:p-10">
+                <h2 className="text-[1.0625rem] font-semibold text-ink mb-3">{s.title}</h2>
+                <p className="text-[0.9375rem] leading-[1.65] text-ink-2 mb-5">{s.desc}</p>
+                <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">
+                  {s.detail}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* License return deep-dive */}

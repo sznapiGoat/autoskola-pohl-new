@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import Breadcrumb from "@/src/components/Breadcrumb";
 import { SCHEDULE_2026 } from "@/src/data/schedule";
@@ -16,7 +17,18 @@ export default function SkoleniPage() {
     <div className="max-w-[1400px] mx-auto px-6 py-24">
       <Breadcrumb crumbs={[{ label: "Domů", href: "/" }, { label: "Profesní školení CPC" }]} />
 
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
+      <div className="mt-10 mb-12 overflow-hidden">
+        <Image
+          src="/images/ucebna.jpg"
+          alt="Učebna pro profesní školení CPC v Dobrušce"
+          width={1400}
+          height={420}
+          priority
+          className="object-cover w-full aspect-[16/5]"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
         {/* Left: info */}
         <div>
           <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-accent mb-3">
