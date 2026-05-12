@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/components/Header";
 import Footer from "@/src/components/Footer";
+import ScrollProgress from "@/src/components/ScrollProgress";
+import BlobBackground from "@/src/components/BlobBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,6 +70,8 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <ScrollProgress />
+        <BlobBackground />
         <Header />
         <main className="flex-1 pt-[62px]">{children}</main>
         <Footer />

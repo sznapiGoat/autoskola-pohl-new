@@ -19,7 +19,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 8);
+    const handler = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -28,9 +28,10 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 h-[62px] transition-shadow duration-300",
-          "bg-bg/95 backdrop-blur-sm border-b border-border",
-          scrolled && "shadow-[0_1px_12px_rgba(0,0,0,0.06)]"
+          "fixed top-0 inset-x-0 z-50 h-[62px] transition-all duration-300",
+          scrolled
+            ? "bg-surface/70 backdrop-blur-md border-b border-white/40 shadow-[0_2px_24px_rgba(0,0,0,0.08)]"
+            : "bg-transparent border-b border-transparent"
         )}
       >
         <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between gap-6">
@@ -48,7 +49,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className="hover:text-accent transition-colors duration-200"
+                className="relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-200 hover:after:w-full hover:text-accent transition-colors duration-200"
               >
                 {label}
               </Link>
@@ -58,7 +59,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={CONTACT.phone1Href}
-              className="hidden sm:flex items-center gap-2 bg-ink text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] transition-all duration-200"
+              className="hidden sm:flex items-center gap-2 bg-ink/90 backdrop-blur-sm text-surface text-[0.8125rem] font-medium px-5 py-2.5 shrink-0 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-cobalt)] transition-all duration-200"
             >
               <Phone size={13} strokeWidth={2.5} />
               {CONTACT.phone1}
@@ -76,7 +77,7 @@ export default function Header() {
               className="md:hidden text-ink-2 hover:text-ink transition-colors duration-200 p-1"
               onClick={() => setMobileOpen(true)}
               aria-label="Otevřít menu"
-              aria-expanded={mobileOpen ? "true" : "false"}
+              aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
             >
               <Menu size={22} />
