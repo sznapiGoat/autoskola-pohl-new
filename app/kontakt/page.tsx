@@ -19,7 +19,7 @@ export default function KontaktPage() {
         <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
           Kontakt
         </p>
-        <h1 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-ink mb-5 tracking-tight leading-[1.1]">
+        <h1 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-black text-ink mb-5 tracking-tight leading-[1.1]">
           Napište nebo zavolejte
         </h1>
         <p className="text-[0.9375rem] text-ink-2 leading-[1.65] max-w-[480px]">
@@ -95,7 +95,7 @@ export default function KontaktPage() {
 
         {/* Right: contact form */}
         <div id="form">
-          <h2 className="text-[1.125rem] font-semibold text-ink mb-6">
+          <h2 className="text-[1.125rem] font-bold text-ink mb-6">
             Napište nám
           </h2>
           <ContactForm />

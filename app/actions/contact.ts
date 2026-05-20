@@ -1,16 +1,18 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { resend } from "@/src/lib/resend";
 import { contactSchema } from "@/src/lib/schemas/contact";
 
 export type ContactState = {
-  success: boolean;
   errors: {
-    jmeno?: string;
+    jmeno?:   string;
+    email?:   string;
     telefon?: string;
     skupina?: string;
-    zprava?: string;
-    root?: string;
+    zprava?:  string;
+    gdpr?:    string;
+    root?:    string;
   };
 };
 
@@ -19,10 +21,12 @@ export async function submitContact(
   formData: FormData
 ): Promise<ContactState> {
   const raw = {
-    jmeno: formData.get("jmeno"),
-    telefon: formData.get("telefon"),
-    skupina: formData.get("skupina"),
-    zprava: formData.get("zprava") ?? "",
+    jmeno:   String(formData.get("jmeno")   ?? ""),
+    email:   String(formData.get("email")   ?? ""),
+    telefon: String(formData.get("telefon") ?? "").trim() || undefined,
+    skupina: String(formData.get("skupina") ?? "").trim() || undefined,
+    zprava:  String(formData.get("zprava")  ?? "").trim(),
+    gdpr:    formData.get("gdpr") as string | null,
   };
 
   const parsed = contactSchema.safeParse(raw);
@@ -34,44 +38,40 @@ export async function submitContact(
         fieldErrors[field] = issue.message;
       }
     }
-    return { success: false, errors: fieldErrors };
+    return { errors: fieldErrors };
   }
 
-  const { jmeno, telefon, skupina, zprava } = parsed.data;
+  const { jmeno, email, telefon, skupina, zprava } = parsed.data;
 
   const body = [
-    `Jméno:   ${jmeno}`,
-    `Telefon: ${telefon}`,
-    `Skupina: ${skupina}`,
-    zprava ? `\nZpráva:\n${zprava}` : "",
+    `Jméno:    ${jmeno}`,
+    `E-mail:   ${email}`,
+    telefon ? `Telefon:  ${telefon}` : null,
+    skupina ? `Skupina:  ${skupina}` : null,
+    zprava  ? `\nZpráva:\n${zprava}` : null,
   ]
     .filter(Boolean)
     .join("\n");
 
   try {
     const { error } = await resend.emails.send({
-      from: "Autoškola POHL <onboarding@resend.dev>",
-      to: "autoskola.pohl@seznam.cz",
+      from:    "Autoškola POHL <onboarding@resend.dev>",
+      to:      "autoskola.pohl@seznam.cz",
+      replyTo: email,
       subject: `Nová poptávka — ${jmeno}`,
-      text: body,
+      text:    body,
     });
 
     if (error) {
       return {
-        success: false,
-        errors: {
-          root: "Formulář se nepodařilo odeslat. Zavolejte nám prosím.",
-        },
+        errors: { root: "Formulář se nepodařilo odeslat. Zavolejte nám prosím." },
       };
     }
   } catch {
     return {
-      success: false,
-      errors: {
-        root: "Formulář se nepodařilo odeslat. Zavolejte nám prosím.",
-      },
+      errors: { root: "Formulář se nepodařilo odeslat. Zavolejte nám prosím." },
     };
   }
 
-  return { success: true, errors: {} };
+  redirect("/dekujeme");
 }
