@@ -36,80 +36,68 @@ export default function HeroSection() {
         />
       </motion.div>
 
-      {/* Gradient overlay — dark on left, lighter on right */}
+      {/* Sharp gradient — heavy on left, dissolves right */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-black/10"
+        className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/60 to-black/10"
         aria-hidden="true"
       />
 
-      {/* Content */}
+      {/* Raw typographic content — no glass card */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 w-full">
-        {/* Glass card */}
-        <motion.div
-          className="w-full max-w-[600px] rounded-2xl border border-white/20 bg-white/[0.12] p-8 md:p-12 backdrop-blur-md"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Eyebrow */}
-          <motion.p
-            className="text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-white/70 mb-5"
-            {...fadeUp(0.25)}
-          >
-            Akreditované školící středisko · Dobruška
-          </motion.p>
+        <div className="w-full max-w-[640px]">
 
-          {/* H1 */}
+          {/* Eyebrow with accent left-bar */}
+          <motion.div className="flex items-center gap-3 mb-7" {...fadeUp(0.2)}>
+            <div className="w-px h-8 bg-accent shrink-0" />
+            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-white/65">
+              Akreditované školící středisko · Dobruška
+            </p>
+          </motion.div>
+
+          {/* H1 — font-black, compact leading, accent on key word */}
           <motion.h1
-            className="text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.08] tracking-tight text-white mb-6"
-            {...fadeUp(0.35)}
+            className="text-[clamp(2.75rem,6vw,5.5rem)] font-black leading-[0.93] tracking-tight text-white mb-8"
+            {...fadeUp(0.32)}
           >
-            TVOJE SVOBODA<br />ZAČÍNÁ U VOLANTU
+            TVOJE SVOBODA<br />
+            <span className="text-accent">ZAČÍNÁ</span> U VOLANTU
           </motion.h1>
 
           {/* Sub */}
           <motion.p
-            className="text-[1.0625rem] leading-[1.72] text-white/80 mb-10 max-w-[480px]"
-            {...fadeUp(0.48)}
+            className="text-[1.0625rem] leading-[1.72] text-white/75 mb-10 max-w-[480px]"
+            {...fadeUp(0.46)}
           >
             Autoškola Pohl: Naučíme tě víc než jen značky.{" "}
             Naučíme tě řídit s jistotou a v klidu.
           </motion.p>
 
-          {/* CTA — bounce entrance + hover glow */}
+          {/* CTA — spring entrance, micro-interaction hover */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.88, y: 12 }}
+            initial={{ opacity: 0, scale: 0.9, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{
-              delay: 0.68,
-              type: "spring",
-              stiffness: 280,
-              damping: 18,
-            }}
+            transition={{ delay: 0.64, type: "spring", stiffness: 280, damping: 20 }}
           >
             <motion.div
               className="inline-block"
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0 0 32px 6px rgba(39,90,220,0.55)",
-              }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 340, damping: 22 }}
             >
               <Link
                 href="/kontakt#form"
-                className="inline-flex items-center bg-accent text-surface text-[0.875rem] font-semibold uppercase tracking-[0.1em] px-10 py-4 rounded-sm"
+                className="inline-flex items-center bg-accent text-surface text-[0.875rem] font-bold uppercase tracking-[0.12em] px-10 py-4"
               >
                 CHCI ZAČÍT JEZDIT
               </Link>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll hint */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/50"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/45"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3, duration: 0.6 }}
@@ -123,7 +111,7 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Skew divider into next section */}
+      {/* Skew divider */}
       <div className="divider-tr absolute bottom-0 left-0 right-0 h-16 bg-surface" aria-hidden="true" />
     </section>
   );

@@ -1,23 +1,31 @@
 export const SERVICES = [
   {
+    iconName: "Car",
     title: "Nový řidičský průkaz",
     desc: "Výcvik skupin AM, A1, A2, A, B, BE, B96, C a CE. Individuální termíny, zkouška na Městském úřadě. Přijímáme i převody z jiných autoškol.",
     detail: "Kurzy od 5 199 Kč · AM až CE",
+    featured: true,
   },
   {
+    iconName: "RotateCcw",
     title: "Vrácení řidičského průkazu",
     desc: "Přezkoušení z odborné způsobilosti po zákazu řízení, po dosažení 12 bodů nebo ze zdravotních důvodů. Zprostředkujeme dopravně psychologické vyšetření.",
     detail: "Zkouška 700 Kč · 3 scénáře",
+    featured: false,
   },
   {
+    iconName: "BookOpen",
     title: "Profesní školení CPC",
     desc: "Povinné pravidelné školení pro řidiče nákladních vozidel a autobusů. Každý rok 7 hodin, za 5 let 35 hodin v celku. Platné pro skupiny C, CE, D, DE.",
     detail: "2026: 4 termíny · Dobruška",
+    featured: false,
   },
   {
+    iconName: "Users",
     title: "Referentské a kondiční jízdy",
     desc: "Zákonné školení zaměstnanců řídících firemní vozidla. Kondiční výcvik pro řidiče, kteří delší dobu neřídili. Přijíždíme i k vám do firmy.",
     detail: "169–194 Kč / os. · U vás nebo u nás",
+    featured: false,
   },
 ] as const;
 

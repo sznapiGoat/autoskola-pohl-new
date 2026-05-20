@@ -45,8 +45,8 @@ export const GROUPS = [
 export type GroupId = (typeof GROUPS)[number]["id"];
 
 export const PRICE_PREVIEW = [
-  { label: "Skupina B",   sub: "Osobní automobil",      price: "28 000 Kč" },
-  { label: "Skupiny A",   sub: "Motocykly AM–A",         price: "26 000 Kč" },
-  { label: "Skupina C",   sub: "Nákladní auto",          price: "26 000 Kč" },
-  { label: "Skupina CE",  sub: "Nákl. auto + přívěs",   price: "18 000 Kč" },
+  { label: "Skupina B",   sub: "Osobní automobil",     price: 28000, featured: true  },
+  { label: "Skupiny A",   sub: "Motocykly AM–A",        price: 26000, featured: false },
+  { label: "Skupina C",   sub: "Nákladní auto",         price: 26000, featured: false },
+  { label: "Skupina CE",  sub: "Nákl. auto + přívěs",  price: 18000, featured: false },
 ] as const;
