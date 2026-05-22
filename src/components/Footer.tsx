@@ -15,7 +15,7 @@ export default function Footer() {
               alt="Autoškola POHL"
               height={34}
               width={110}
-              className="h-[34px] w-auto object-contain brightness-0 invert"
+              className="h-[34px] w-auto object-contain"
             />
           </Link>
           <p className="text-[0.875rem] text-surface/50 mt-3 leading-[1.65] max-w-[320px]">
