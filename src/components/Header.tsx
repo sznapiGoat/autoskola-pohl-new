@@ -6,14 +6,8 @@ import Image from "next/image";
 import { Phone, Menu } from "lucide-react";
 import { cn } from "@/src/lib/cn";
 import { CONTACT } from "@/src/data/contact";
+import { NAV_LINKS } from "@/src/data/nav";
 import MobileNav from "@/src/components/MobileNav";
-
-const NAV_LINKS = [
-  { href: "/sluzby",  label: "Služby" },
-  { href: "/cenik",   label: "Ceník" },
-  { href: "/skoleni", label: "Školení" },
-  { href: "/kontakt", label: "Kontakt" },
-] as const;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

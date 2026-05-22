@@ -17,12 +17,9 @@ export default function HomePage() {
       <section className="relative py-28 bg-surface">
         <div className="max-w-[1400px] mx-auto px-6">
           <RevealOnScroll>
-            <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
-              Co nabízíme
-            </p>
             <div className="flex items-end justify-between gap-6 mb-12">
               <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-black leading-[1.1] tracking-tight text-ink">
-                Čtyři způsoby, jak vám pomůžeme
+                Čtyři způsoby,<br className="hidden sm:block" /> jak vám pomůžeme
               </h2>
               <Link
                 href="/sluzby"
@@ -52,12 +49,10 @@ export default function HomePage() {
       <section className="relative py-28 bg-bg overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6">
           <RevealOnScroll>
-            <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
-              Orientační ceny
-            </p>
-            <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-black leading-[1.1] tracking-tight text-ink mb-12">
+            <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-black leading-[1.1] tracking-tight text-ink mb-3">
               Jasná cena od začátku
             </h2>
+            <p className="text-[0.9375rem] text-ink-3 mb-12">Bez skrytých poplatků — vše zahrnuto v ceně kurzu.</p>
           </RevealOnScroll>
           <PricingPreview />
         </div>
@@ -69,9 +64,6 @@ export default function HomePage() {
       <section className="py-28 bg-surface overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 mb-12">
           <RevealOnScroll>
-            <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
-              Reference
-            </p>
             <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-black leading-[1.1] tracking-tight text-ink">
               Co říkají absolventi
             </h2>
@@ -97,9 +89,6 @@ export default function HomePage() {
               </div>
             </RevealOnScroll>
             <RevealOnScroll delay={0.15}>
-              <p className="text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-ink-3 mb-3">
-                Proč s námi
-              </p>
               <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-ink mb-6">
                 Zkušení instruktoři,<br />individuální přístup
               </h2>

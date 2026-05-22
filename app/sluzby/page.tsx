@@ -82,17 +82,17 @@ export default function SluzbyPage() {
             <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.2] tracking-tight text-ink mb-8">
               Přišli jste o řidičský průkaz?
             </h2>
-            <p className="text-[1.0625rem] leading-[1.65] text-ink-2 mb-5">
+            <p className="text-[1.0625rem] leading-[1.65] text-ink-2 mb-5 max-w-[65ch]">
               Pomůžeme vám s přezkoušením z odborné způsobilosti bez ohledu
               na důvod odnětí. Zkouška je náročná — cvičné jízdy předem
               doporučujeme.
             </p>
-            <p className="text-[0.9375rem] leading-[1.65] text-ink-2 mb-5">
+            <p className="text-[0.9375rem] leading-[1.65] text-ink-2 mb-5 max-w-[65ch]">
               Zkouška se skládá ze tří částí: test z pravidel provozu, test
               z ovládání vozidla (skupiny C, CE, D, DE) a praktická jízda.
               Máte nárok na jednu opravnou zkoušku.
             </p>
-            <p className="text-[0.875rem] text-ink-3">
+            <p className="text-[0.875rem] text-ink-3 max-w-[65ch]">
               Dopravně psychologické vyšetření zprostředkujeme.
             </p>
           </div>

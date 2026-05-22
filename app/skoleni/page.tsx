@@ -90,7 +90,7 @@ export default function SkoleniPage() {
 
           <a
             href={CONTACT.emailSubjectTraining}
-            className="mt-4 flex items-center justify-center gap-2 bg-accent text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-8 py-4 hover:bg-accent-deep hover:-translate-y-0.5 hover:shadow-[var(--shadow-cobalt)] transition-all duration-200"
+            className="mt-4 flex items-center justify-center gap-2 bg-accent text-surface text-[0.8125rem] font-medium tracking-[0.04em] px-8 py-4 hover:bg-accent-deep hover:-translate-y-0.5 hover:shadow-[var(--shadow-cobalt)] transition-all duration-200"
           >
             <Mail size={14} strokeWidth={2.5} />
             Přihlásit se na školení

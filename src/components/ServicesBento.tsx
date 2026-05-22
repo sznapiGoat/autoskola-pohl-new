@@ -75,7 +75,7 @@ export default function ServicesBento() {
               <p
                 className={[
                   "text-[0.9375rem] leading-[1.65]",
-                  isDark ? "text-white/68" : "text-ink-2",
+                  isDark ? "text-white/65" : "text-ink-2",
                 ].join(" ")}
               >
                 {s.desc}

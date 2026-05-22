@@ -50,7 +50,7 @@ export default function HeroSection() {
           <motion.div className="flex items-center gap-3 mb-7" {...fadeUp(0.2)}>
             <div className="w-px h-8 bg-accent shrink-0" />
             <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-white/65">
-              Akreditované školící středisko · Dobruška
+              Dobruška
             </p>
           </motion.div>
 
@@ -86,9 +86,9 @@ export default function HeroSection() {
             >
               <Link
                 href="/kontakt#form"
-                className="inline-flex items-center bg-accent text-surface text-[0.875rem] font-bold uppercase tracking-[0.12em] px-10 py-4"
+                className="inline-flex items-center bg-accent text-surface text-[0.875rem] font-bold tracking-[0.04em] px-10 py-4"
               >
-                CHCI ZAČÍT JEZDIT
+                Chci začít jezdit
               </Link>
             </motion.div>
           </motion.div>

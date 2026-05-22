@@ -4,14 +4,10 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/src/lib/cn";
-
-const NAV_LINKS = [
-  { href: "/sluzby",  label: "Služby" },
-  { href: "/cenik",   label: "Ceník" },
-  { href: "/skoleni", label: "Školení" },
-  { href: "/kontakt", label: "Kontakt" },
-] as const;
+import { NAV_LINKS } from "@/src/data/nav";
+import { CONTACT } from "@/src/data/contact";
 
 interface MobileNavProps {
   open: boolean;
@@ -69,9 +65,13 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center justify-between px-6 h-[62px] border-b border-border shrink-0">
-              <span className="font-bold text-[1.05rem] tracking-tight text-ink">
-                Autoškola POHL
-              </span>
+              <Image
+                src="/images/pohl1.png"
+                alt="Autoškola POHL"
+                height={34}
+                width={110}
+                className="h-[34px] w-auto object-contain"
+              />
               <button
                 ref={closeRef}
                 onClick={onClose}
@@ -100,10 +100,10 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
             <div className="mt-auto px-6 pb-8">
               <a
-                href="tel:+420602441636"
+                href={CONTACT.phone1Href}
                 className="flex items-center justify-center bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em] px-6 py-4 hover:bg-accent transition-colors duration-200"
               >
-                +420 602 441 636
+                {CONTACT.phone1}
               </a>
             </div>
           </motion.div>

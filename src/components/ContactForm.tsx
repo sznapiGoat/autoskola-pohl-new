@@ -4,7 +4,22 @@ import { useActionState } from "react";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { cn } from "@/src/lib/cn";
 
-const COURSE_OPTIONS = ["Skupina B", "Skupina A", "Automat", "Kondiční jízdy"] as const;
+const COURSE_OPTIONS = [
+  "Skupina AM",
+  "Skupina A1",
+  "Skupina A2",
+  "Skupina A",
+  "Skupina B",
+  "Skupina B96",
+  "Skupina BE",
+  "Skupina C",
+  "Skupina CE",
+  "Automat (sk. B)",
+  "Profesní školení CPC",
+  "Referentské školení",
+  "Kondiční jízdy",
+  "Vrácení řidičského průkazu",
+] as const;
 
 const initialState: ContactState = { errors: {} };
 
@@ -185,7 +200,7 @@ export default function ContactForm() {
         disabled={pending}
         className={cn(
           "inline-flex items-center justify-center gap-2 self-start",
-          "bg-ink text-surface text-[0.8125rem] font-medium uppercase tracking-[0.06em]",
+          "bg-ink text-surface text-[0.8125rem] font-medium tracking-[0.04em]",
           "px-10 py-4 hover:bg-accent hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]",
           "transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
         )}

@@ -1,12 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT } from "@/src/data/contact";
-
-const NAV_LINKS = [
-  { href: "/sluzby",  label: "Služby" },
-  { href: "/cenik",   label: "Ceník" },
-  { href: "/skoleni", label: "Školení" },
-  { href: "/kontakt", label: "Kontakt" },
-] as const;
+import { NAV_LINKS } from "@/src/data/nav";
 
 export default function Footer() {
   return (
@@ -15,9 +10,13 @@ export default function Footer() {
         {/* Brand + contact */}
         <div>
           <Link href="/">
-            <span className="font-bold text-[1.05rem] tracking-tight text-surface">
-              Autoškola POHL
-            </span>
+            <Image
+              src="/images/pohl1.png"
+              alt="Autoškola POHL"
+              height={34}
+              width={110}
+              className="h-[34px] w-auto object-contain brightness-0 invert"
+            />
           </Link>
           <p className="text-[0.875rem] text-surface/50 mt-3 leading-[1.65] max-w-[320px]">
             Akreditované školící středisko řidičů PZ v Dobrušce. Výcvik skupin
