@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu } from "lucide-react";
 import { cn } from "@/src/lib/cn";
 import { CONTACT } from "@/src/data/contact";
@@ -36,9 +37,14 @@ export default function Header() {
       >
         <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between gap-6">
           <Link href="/" className="shrink-0">
-            <span className="font-bold text-[1.05rem] tracking-tight text-ink">
-              Autoškola POHL
-            </span>
+            <Image
+              src="/images/pohl1.png"
+              alt="Autoškola POHL"
+              height={38}
+              width={120}
+              className="h-[38px] w-auto object-contain"
+              priority
+            />
           </Link>
 
           <nav
