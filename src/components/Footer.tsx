@@ -63,7 +63,7 @@ export default function Footer() {
 
       <div className="border-t border-surface/10">
         <div className="max-w-[1400px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.75rem] text-surface/30">
-          <span>© {new Date().getFullYear()} {CONTACT.companyName} · IČ: {CONTACT.ico}</span>
+          <span>© {new Date().getFullYear()} IČ: {CONTACT.ico}</span>
           <span>{CONTACT.companyAddress}</span>
         </div>
       </div>
