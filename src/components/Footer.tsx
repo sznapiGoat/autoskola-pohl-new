@@ -14,7 +14,7 @@ export default function Footer() {
               src="/images/pohl1-white.png"
               alt="Autoškola POHL"
               height={34}
-              width={110}
+              width={84}
               className="h-[34px] w-auto object-contain"
             />
           </Link>

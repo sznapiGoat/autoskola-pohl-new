@@ -39,7 +39,7 @@ export default function Header() {
               src="/images/pohl1.png"
               alt="Autoškola POHL"
               height={38}
-              width={120}
+              width={93}
               className="h-[38px] w-auto object-contain"
               priority
             />

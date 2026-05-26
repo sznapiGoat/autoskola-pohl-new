@@ -75,3 +75,4 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
  GET /kontakt 200 in 125ms (next.js: 41ms, application-code: 83ms)
 [browser] Image with src "/images/pohl1.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
 [browser] Image with src "/images/pohl1-white.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 541ms
