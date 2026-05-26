@@ -93,7 +93,7 @@ export default function HomePage() {
                 Zkušení instruktoři,<br />individuální přístup
               </h2>
               <p className="text-[1rem] leading-[1.65] text-ink-2 mb-4">
-                V Dobrušce vyučujeme řidiče od roku 1990. Každý kurz
+                V Dobrušce vyučujeme řidiče od roku 2018. Každý kurz
                 přizpůsobíme vašemu tempu — žádný spěch, žádný nátlak.
                 Jízdy domlouváme individuálně dle termínu.
               </p>

@@ -28,13 +28,17 @@ export default function PricingAccordion() {
               aria-selected={active}
               onClick={() => setSelected(g.id as GroupId)}
               className={cn(
-                "px-5 py-2.5 text-sm font-medium uppercase tracking-[0.05em] border transition-colors duration-200 cursor-pointer",
+                "px-5 py-2.5 text-sm font-medium uppercase tracking-[0.05em] border transition-colors duration-200 cursor-pointer flex flex-col items-start gap-0.5",
                 active
                   ? "bg-accent text-surface border-accent"
                   : "bg-transparent text-ink-2 border-border hover:border-accent hover:text-ink"
               )}
             >
-              {g.label}
+              <span>{g.label}</span>
+              <span className={cn(
+                "text-[0.625rem] normal-case tracking-normal font-normal",
+                active ? "text-surface/70" : "text-ink-3"
+              )}>{g.description}</span>
             </button>
           );
         })}

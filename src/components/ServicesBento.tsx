@@ -17,7 +17,7 @@ const BENTO_SPANS = [
 
 export default function ServicesBento() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "200px 0px" });
 
   return (
     <motion.div
@@ -40,9 +40,8 @@ export default function ServicesBento() {
               isDark ? "bg-ink" : "bg-surface border border-ink/[0.07]",
             ].join(" ")}
             variants={{
-              hidden: { opacity: 0, y: 24 },
+              hidden: { y: 20 },
               visible: {
-                opacity: 1,
                 y: 0,
                 transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
               },

@@ -73,8 +73,8 @@ export default function KontaktPage() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2555.2!2d16.1575!3d50.2912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zS29tZW5za8OpaG8gNjg3LCBEb2JydcWha2E!5e0!3m2!1scs!2scz!4v1"
               width="100%"
-              height="260"
-              style={{ border: 0, display: "block" }}
+              className="block w-full h-[300px] sm:h-[260px]"
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
