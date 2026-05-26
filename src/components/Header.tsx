@@ -30,7 +30,11 @@ export default function Header() {
         )}
       >
         <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between gap-6">
-          <Link href="/" className="shrink-0">
+          <Link
+            href="/"
+            className="shrink-0"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
             <Image
               src="/images/pohl1.png"
               alt="Autoškola POHL"

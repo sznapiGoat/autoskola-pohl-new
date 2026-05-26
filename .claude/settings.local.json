@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Users\\\\sznap\\\\autoskola-pohl-new\" status)",
+      "Bash(git -C \"C:\\\\Users\\\\sznap\\\\autoskola-pohl-new\" diff)",
+      "Bash(git -C \"C:\\\\Users\\\\sznap\\\\autoskola-pohl-new\" add src/components/Header.tsx public/images/pohl1.png)",
+      "Bash(git -C 'C:\\\\Users\\\\sznap\\\\autoskola-pohl-new' commit -m ' *)",
+      "Bash(git *)",
+      "Bash(npx --yes impeccable --version)",
+      "Bash(npx impeccable *)",
+      "Bash(npx next *)",
+      "Bash(node -e ' *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

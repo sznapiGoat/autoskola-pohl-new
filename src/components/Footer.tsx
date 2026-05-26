@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <Link href="/">
             <Image
-              src="/images/pohl1.png"
+              src="/images/pohl1-white.png"
               alt="Autoškola POHL"
               height={34}
               width={110}
