@@ -76,3 +76,4 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [browser] Image with src "/images/pohl1.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
 [browser] Image with src "/images/pohl1-white.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
 ✓ Compiled in 541ms
+✓ Compiled in 163ms

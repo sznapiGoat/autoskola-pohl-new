@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { CONTACT } from "@/src/data/contact";
 import { NAV_LINKS } from "@/src/data/nav";
 
@@ -10,12 +9,11 @@ export default function Footer() {
         {/* Brand + contact */}
         <div>
           <Link href="/">
-            <Image
-              src="/images/pohl1-white.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.svg"
               alt="Autoškola POHL"
-              height={34}
-              width={84}
-              className="h-[34px] w-auto object-contain"
+              className="h-[34px] w-auto brightness-0 invert"
             />
           </Link>
           <p className="text-[0.875rem] text-surface/50 mt-3 leading-[1.65] max-w-[320px]">

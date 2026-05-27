@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, Menu } from "lucide-react";
 import { cn } from "@/src/lib/cn";
 import { CONTACT } from "@/src/data/contact";
@@ -35,13 +34,11 @@ export default function Header() {
             className="shrink-0"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <Image
-              src="/images/pohl1.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.svg"
               alt="Autoškola POHL"
-              height={38}
-              width={93}
-              className="h-[38px] w-auto object-contain"
-              priority
+              className="h-[38px] w-auto"
             />
           </Link>
 
