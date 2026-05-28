@@ -19,7 +19,7 @@ export default function HomePage() {
           <RevealOnScroll>
             <div className="flex items-end justify-between gap-6 mb-12">
               <h2 className="text-[clamp(2rem,3.5vw,2.75rem)] font-black leading-[1.1] tracking-tight text-ink">
-                Čtyři způsoby,<br className="hidden sm:block" /> jak vám pomůžeme
+                Kurzy a služby
               </h2>
               <Link
                 href="/sluzby"
@@ -90,12 +90,11 @@ export default function HomePage() {
             </RevealOnScroll>
             <RevealOnScroll delay={0.15}>
               <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-ink mb-6">
-                Zkušení instruktoři,<br />individuální přístup
+                V Dobrušce<br />od roku 2018
               </h2>
               <p className="text-[1rem] leading-[1.65] text-ink-2 mb-4">
-                V Dobrušce vyučujeme řidiče od roku 2018. Každý kurz
-                přizpůsobíme vašemu tempu — žádný spěch, žádný nátlak.
-                Jízdy domlouváme individuálně dle termínu.
+                Vedeme kurzy všech skupin, termíny jízd domlouváme podle vás.
+                Nejsme velká fabrika — každý žák má prostor se to pořádně naučit.
               </p>
               <p className="text-[0.875rem] text-ink-3">
                 Přihlaste se e-mailem nebo telefonicky. Zahájení kdykoli.
@@ -112,10 +111,10 @@ export default function HomePage() {
         <div className="relative max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <RevealOnScroll>
             <h2 className="text-[1.5rem] font-black text-surface mb-1">
-              Připraveni začít?
+              Zájem o kurz?
             </h2>
             <p className="text-surface/70 text-[0.9375rem]">
-              Zavolejte nám nebo pošlete zprávu — odpovíme do 24 hodin.
+              Zavolejte nebo napište — ozveme se.
             </p>
           </RevealOnScroll>
           <RevealOnScroll delay={0.1} className="flex flex-wrap gap-3 shrink-0">

@@ -54,22 +54,20 @@ export default function HeroSection() {
             </p>
           </motion.div>
 
-          {/* H1 — font-black, compact leading, accent on key word */}
           <motion.h1
             className="text-[clamp(2.75rem,6vw,5.5rem)] font-black leading-[0.93] tracking-tight text-white mb-8"
             {...fadeUp(0.32)}
           >
-            TVOJE SVOBODA<br />
-            <span className="text-accent">ZAČÍNÁ</span> U VOLANTU
+            VÝCVIK ŘIDIČŮ<br />
+            <span className="text-accent">V DOBRUŠCE</span>
           </motion.h1>
 
-          {/* Sub */}
           <motion.p
             className="text-[1.0625rem] leading-[1.72] text-white/75 mb-10 max-w-[480px]"
             {...fadeUp(0.46)}
           >
-            Autoškola Pohl: Naučíme tě víc než jen značky.{" "}
-            Naučíme tě řídit s jistotou a v klidu.
+            Skupiny AM, A, B, C a CE. Termíny jízd domlouváme individuálně —
+            přijímáme i převody z jiných autoškol.
           </motion.p>
 
           {/* CTA — spring entrance, micro-interaction hover */}

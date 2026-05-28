@@ -56,10 +56,10 @@ export default function CenikPage() {
       <div className="mt-14 border-t border-border pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <h2 className="text-[1.25rem] font-semibold text-ink mb-1">
-            Připraveni se přihlásit?
+            Zájem o kurz?
           </h2>
           <p className="text-[0.9375rem] text-ink-2">
-            Vyplňte přihlášku a ozveme se do 24 hodin.
+            Vyplňte přihlášku nebo zavolejte.
           </p>
         </div>
         <Link
