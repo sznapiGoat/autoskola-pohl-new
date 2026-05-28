@@ -38,7 +38,10 @@ export default function Header() {
             <img
               src="/images/logo.svg"
               alt="Autoškola POHL"
-              className="h-[38px] w-auto"
+              className={cn(
+                "h-[38px] w-auto transition-[filter] duration-300",
+                scrolled ? "" : "brightness-0 invert"
+              )}
             />
           </Link>
 
