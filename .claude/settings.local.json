@@ -18,7 +18,11 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
       "Bash(node *)",
       "Bash(curl *)",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "Bash(grep -E '^[^/]*\\\\.\\(png|log\\)$|build-output')",
+      "Bash(grep -iE '\\\\.\\(png|jpg|svg\\)$')",
+      "Bash(npx eslint *)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }

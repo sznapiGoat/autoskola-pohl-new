@@ -61,6 +61,12 @@ export default function ContactForm() {
       noValidate
       className="border border-border bg-surface p-8 md:p-10 flex flex-col gap-5"
     >
+      {/* Honeypot — hidden from real users, catches bots */}
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor="web">Nechte prázdné</label>
+        <input id="web" name="web" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {/* Row 1: Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="flex flex-col gap-1">

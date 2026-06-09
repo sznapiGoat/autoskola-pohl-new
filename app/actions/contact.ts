@@ -20,6 +20,12 @@ export async function submitContact(
   _prev: ContactState,
   formData: FormData
 ): Promise<ContactState> {
+  // Honeypot: real users never see or fill this field. If it's populated,
+  // silently accept (so the bot thinks it succeeded) without sending mail.
+  if (String(formData.get("web") ?? "").trim() !== "") {
+    redirect("/dekujeme");
+  }
+
   const raw = {
     jmeno:   String(formData.get("jmeno")   ?? ""),
     email:   String(formData.get("email")   ?? ""),

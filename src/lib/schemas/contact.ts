@@ -17,9 +17,8 @@ export const contactSchema = z.object({
     )
     .optional(),
   skupina: z
-    .enum(["Skupina B", "Skupina A", "Automat", "Kondiční jízdy"] as const, {
-      message: "Vyberte skupinu nebo typ jízdy",
-    })
+    .string()
+    .max(100, "Neplatná hodnota")
     .optional(),
   zprava: z
     .string()

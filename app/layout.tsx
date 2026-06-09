@@ -41,6 +41,7 @@ const jsonLd = {
   description:
     "Akreditované školící středisko řidičů PZ v Dobrušce. Výcvik skupin AM–CE, profesní školení CPC, vrácení řidičského průkazu.",
   url: "https://www.autoskola-pohl.cz",
+  image: "https://www.autoskola-pohl.cz/opengraph-image",
   telephone: ["+420602441636", "+420607656937"],
   email: "autoskola.pohl@seznam.cz",
   address: {
@@ -50,7 +51,16 @@ const jsonLd = {
     addressLocality: "Dobruška",
     addressCountry: "CZ",
   },
-  priceRange: "Kč",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 50.2922,
+    longitude: 16.1611,
+  },
+  areaServed: [
+    { "@type": "City", name: "Dobruška" },
+    { "@type": "AdministrativeArea", name: "Královéhradecký kraj" },
+  ],
+  priceRange: "5199–28000 Kč",
 };
 
 export default function RootLayout({
@@ -70,10 +80,13 @@ export default function RootLayout({
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <a href="#main" className="skip-link">
+          Přeskočit na obsah
+        </a>
         <ScrollProgress />
         <BlobBackground />
         <Header />
-        <main className="flex-1 pt-[62px]">{children}</main>
+        <main id="main" className="flex-1 pt-[62px]">{children}</main>
         <Footer />
       </body>
     </html>
