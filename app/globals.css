@@ -13,6 +13,8 @@
   --color-surface:      oklch(99.5% 0 0);
   --color-accent:       oklch(36% 0.175 252);
   --color-accent-deep:  oklch(28% 0.175 252);
+  /* Light variant for accent text on dark photos/backgrounds */
+  --color-accent-bright: oklch(72% 0.16 252);
   --color-ink:          oklch(9% 0 0);
   --color-ink-2:        oklch(32% 0 0);
   --color-ink-3:        oklch(52% 0 0);

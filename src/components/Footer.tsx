@@ -62,6 +62,12 @@ export default function Footer() {
       <div className="border-t border-surface/10">
         <div className="max-w-[1400px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.75rem] text-surface/30">
           <span>© {new Date().getFullYear()} IČ: {CONTACT.ico}</span>
+          <Link
+            href="/ochrana-osobnich-udaju"
+            className="hover:text-surface/60 transition-colors duration-200"
+          >
+            Ochrana osobních údajů
+          </Link>
           <span>{CONTACT.companyAddress}</span>
         </div>
       </div>

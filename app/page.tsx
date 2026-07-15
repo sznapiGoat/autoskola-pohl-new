@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, CalendarDays } from "lucide-react";
 import { CONTACT } from "@/src/data/contact";
-import { SCHEDULE_2026 } from "@/src/data/schedule";
+import { getUpcomingSchedule } from "@/src/data/schedule";
 import HeroSection from "@/src/components/HeroSection";
 import InfiniteMarquee from "@/src/components/InfiniteMarquee";
 import PricingPreview from "@/src/components/PricingPreview";
@@ -10,7 +10,12 @@ import ServicesBento from "@/src/components/ServicesBento";
 import { RevealOnScroll } from "@/src/components/RevealOnScroll";
 import { cn } from "@/src/lib/cn";
 
+// Re-render daily so past CPC dates drop out of the schedule
+export const revalidate = 86400;
+
 export default function HomePage() {
+  const upcoming = getUpcomingSchedule();
+
   return (
     <>
       <HeroSection />
@@ -83,7 +88,7 @@ export default function HomePage() {
               <div className="overflow-hidden">
                 <Image
                   src="/images/bas-peperzak-tyhpK_QelPo-unsplash.jpg"
-                  alt="Instruktor s žákem na cvičišti"
+                  alt="Výcvik řidičů — ilustrační foto"
                   width={660}
                   height={440}
                   className="object-cover w-full aspect-[3/2]"
@@ -132,12 +137,17 @@ export default function HomePage() {
 
             <RevealOnScroll delay={0.1}>
               <div className="border border-border bg-bg">
-                {SCHEDULE_2026.map((d, i) => (
+                {upcoming.length === 0 && (
+                  <p className="px-6 py-5 text-[0.9375rem] text-ink-3">
+                    Termíny pro další období připravujeme — kontaktujte nás.
+                  </p>
+                )}
+                {upcoming.map((d, i) => (
                   <div
-                    key={i}
+                    key={d.iso}
                     className={cn(
                       "flex items-center justify-between gap-4 px-6 py-5",
-                      i < SCHEDULE_2026.length - 1 && "border-b border-border"
+                      i < upcoming.length - 1 && "border-b border-border"
                     )}
                   >
                     <div>

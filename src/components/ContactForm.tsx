@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { cn } from "@/src/lib/cn";
 
@@ -187,8 +188,15 @@ export default function ContactForm() {
             style={{ accentColor: "oklch(36% 0.175 252)" }}
           />
           <span className="text-[0.8125rem] text-ink-2 leading-[1.6] select-none">
-            Souhlasím se zpracováním osobních údajů dle zásad ochrany
-            osobních údajů.
+            Souhlasím se zpracováním osobních údajů dle{" "}
+            <Link
+              href="/ochrana-osobnich-udaju"
+              target="_blank"
+              className="underline underline-offset-2 hover:text-accent transition-colors duration-200"
+            >
+              zásad ochrany osobních údajů
+            </Link>
+            .
           </span>
         </label>
         <FieldError id="err-gdpr" message={state.errors.gdpr} />

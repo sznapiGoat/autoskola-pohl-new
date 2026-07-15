@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "DrivingSchool",
   name: "Autoškola Pohl s.r.o.",
   description:
     "Akreditované školící středisko řidičů PZ v Dobrušce. Výcvik skupin AM–CE, profesní školení CPC, vrácení řidičského průkazu.",

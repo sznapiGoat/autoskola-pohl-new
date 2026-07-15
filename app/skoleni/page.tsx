@@ -2,17 +2,22 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Mail } from "lucide-react";
 import Breadcrumb from "@/src/components/Breadcrumb";
-import { SCHEDULE_2026 } from "@/src/data/schedule";
+import { getUpcomingSchedule } from "@/src/data/schedule";
 import { CONTACT } from "@/src/data/contact";
 import { cn } from "@/src/lib/cn";
 
 export const metadata: Metadata = {
   title: "Profesní školení CPC",
   description:
-    "Termíny povinného profesního školení CPC pro řidiče skupin C, CE, D, DE v Dobrušce. 4 termíny v roce 2026, začátek v 7:00.",
+    "Termíny povinného profesního školení CPC pro řidiče skupin C, CE, D, DE v Dobrušce. Začátek vždy v 7:00.",
 };
 
+// Re-render daily so past CPC dates drop out of the schedule
+export const revalidate = 86400;
+
 export default function SkoleniPage() {
+  const upcoming = getUpcomingSchedule();
+
   return (
     <div className="max-w-[1400px] mx-auto px-6 py-24">
       <Breadcrumb crumbs={[{ label: "Domů", href: "/" }, { label: "Profesní školení CPC" }]} />
@@ -64,12 +69,17 @@ export default function SkoleniPage() {
         {/* Right: schedule */}
         <div>
           <div className="border border-border">
-            {SCHEDULE_2026.map((d, i) => (
+            {upcoming.length === 0 && (
+              <p className="px-6 py-5 text-[0.9375rem] text-ink-3">
+                Termíny pro další období připravujeme — kontaktujte nás.
+              </p>
+            )}
+            {upcoming.map((d, i) => (
               <div
-                key={i}
+                key={d.iso}
                 className={cn(
                   "flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-6 py-5",
-                  i < SCHEDULE_2026.length - 1 && "border-b border-border"
+                  i < upcoming.length - 1 && "border-b border-border"
                 )}
               >
                 <div>

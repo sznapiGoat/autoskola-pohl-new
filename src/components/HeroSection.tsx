@@ -59,7 +59,7 @@ export default function HeroSection() {
             {...fadeUp(0.32)}
           >
             VÝCVIK ŘIDIČŮ<br />
-            <span className="text-accent">V DOBRUŠCE</span>
+            <span className="text-accent-bright">V DOBRUŠCE</span>
           </motion.h1>
 
           <motion.p
